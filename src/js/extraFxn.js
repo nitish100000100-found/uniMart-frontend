@@ -129,4 +129,4 @@ async function deleteListed(item, forChange, setRemoving) {
   }
 }
 
-export { checkLogin, allowEntery, handleSubmitSell, deleteListed };
+export { checkLogin, allowEntry, handleSubmitSell, deleteListed };

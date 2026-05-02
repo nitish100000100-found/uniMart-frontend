@@ -33,18 +33,16 @@ function Signup() {
     }
 
     try {
-      const res = await axios.post(
-        "http://localhost:3000/signup",
-        { username, password, email, phone },
-        { withCredentials: true }
-      );
+const res = await axios.post(
+  `${import.meta.env.VITE_API_BASE_URL}/signup`,
+  { username, password, email, phone },
+);
 
       if (res.data.message === "OK") {
-        const signinRes = await axios.post(
-          "http://localhost:3000/signin",
-          { username, password },
-          { withCredentials: true }
-        );
+   const signinRes = await axios.post(
+  `${import.meta.env.VITE_API_BASE_URL}/signin`,
+  { username, password },
+);
 
         if (signinRes.data.message === "OK") {
           navigate("/");

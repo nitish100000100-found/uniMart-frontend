@@ -1,35 +1,32 @@
 import axios from "axios";
 import { redirect } from "react-router-dom";
 
+function getToken() {
+  return localStorage.getItem("token");
+}
+
 async function checkLogin() {
   try {
-    const res = await axios.get(
+    const res = await axios.post(
       `${import.meta.env.VITE_API_BASE_URL}/signin/isSignin`,
-      {
-        withCredentials: true,
-      },
+      { token: getToken() } 
     );
 
     if (res.data.success) {
-      const username = res.data.data.username;
-
-      return redirect(`/home/${username}`);
+      return redirect(`/home/${res.data.data.username}`);
     } else {
       return null;
     }
   } catch (err) {
-    console.log(err);
     return null;
   }
 }
-async function allowEntery() {
-  console.log("allowentery hai kya?");
+
+async function allowEntry() {
   try {
-    const res = await axios.get(
+    const res = await axios.post(
       `${import.meta.env.VITE_API_BASE_URL}/signin/isSignin`,
-      {
-        withCredentials: true,
-      },
+      { token: getToken() } 
     );
 
     if (res.data.success) {
@@ -38,7 +35,6 @@ async function allowEntery() {
       return redirect(`/`);
     }
   } catch (err) {
-    console.log(err);
     return redirect(`/`);
   }
 }

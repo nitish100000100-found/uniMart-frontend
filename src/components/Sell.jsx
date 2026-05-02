@@ -18,11 +18,11 @@ function Sell() {
   useEffect(() => {
     const callDB = async () => {
       try {
-        const res = await axios.post(
-          "http://localhost:3000/sell/firstDB",
-          { username },
-          { withCredentials: true },
-        );
+    
+const res = await axios.post(
+  `${import.meta.env.VITE_API_BASE_URL}/sell/firstDB`,
+  { username },
+);   
         const d = res.data.data;
         setData({
           listed: d.listed ? d.listed : [],

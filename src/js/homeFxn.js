@@ -151,7 +151,7 @@ async function changePhone(e, showNotif, username) {
     console.log(err);
   }
 }
-export async function logOut() {
+async function logOut() {
   localStorage.removeItem("token"); 
   return redirect("/");
 }

@@ -26,31 +26,26 @@ function Signin() {
     }
 
     try {
-      
-
       const res = await axios.post(
-        "http://localhost:3000/signin",
-        {
-          username,
-          password,
-        },
-        { withCredentials: true },
+        `${import.meta.env.VITE_API_BASE_URL}/signin`,
+        { username, password }
       );
 
-      if (res.data.message === "OK") {
+      if (res.data.success) {
+        localStorage.setItem("token", res.data.token);  
         navigate(`/home/${username}`);
-      } else if (res.data.message === "User not found") {
+      } else if (res.data.message === "This username doesn't exist") {
         setError(["User Not Found"]);
       } else if (res.data.message === "Wrong Password") {
         setError(["Wrong Password"]);
-      } else if (res.data.message === "Databse Error") {
-        setError(["Connection to databse failed"]);
+      } else if (res.data.message === "Database Error") {
+        setError(["Connection to database failed"]);
       } else {
-        setError(["Some Error occured"]);
+        setError(["Some Error occurred"]);
       }
     } catch (err) {
       console.log(err);
-      setError(["Backeend error"]);
+      setError(["Backend error"]);
     }
   }
 

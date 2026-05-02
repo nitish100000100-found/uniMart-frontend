@@ -7,18 +7,15 @@ function Signup() {
   const [error, setError] = useState([]);
   const navigate = useNavigate();
 
-  async function formSub(e) {
+async function formSub(e) {
     e.preventDefault();
-
     const newError = [];
     const form = e.target;
-
     const username = form.username.value.trim().toUpperCase();
     const password = form.password.value.trim();
     const confirmPassword = form.confirmPassword.value.trim();
     const email = form.email.value.trim();
     const phone = form.phone.value.trim();
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (username.length === 0) newError.push("Your username section is empty");
@@ -26,26 +23,26 @@ function Signup() {
     if (password !== confirmPassword) newError.push("Passwords don't match");
     if (!emailRegex.test(email)) newError.push("Enter valid Email id");
     if (!/^\d{10}$/.test(phone)) newError.push("Enter valid phone no");
-
     if (newError.length > 0) {
       setError(newError);
       return;
     }
 
     try {
-const res = await axios.post(
-  `${import.meta.env.VITE_API_BASE_URL}/signup`,
-  { username, password, email, phone },
-);
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URL}/signup`,
+        { username, password, email, phone },
+      );
 
       if (res.data.message === "OK") {
-   const signinRes = await axios.post(
-  `${import.meta.env.VITE_API_BASE_URL}/signin`,
-  { username, password },
-);
+        const signinRes = await axios.post(
+          `${import.meta.env.VITE_API_BASE_URL}/signin`,
+          { username, password },
+        );
 
-        if (signinRes.data.message === "OK") {
-          navigate("/");
+        if (signinRes.data.success) {
+          localStorage.setItem("token", signinRes.data.token);
+          navigate(`/home/${username}`);
         } else {
           setError([signinRes.data.message]);
         }

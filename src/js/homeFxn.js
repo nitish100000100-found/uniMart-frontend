@@ -151,22 +151,9 @@ async function changePhone(e, showNotif, username) {
     console.log(err);
   }
 }
-async function logOut() {
-  try {
-    const res = await axios.post(
-      `${import.meta.env.VITE_API_BASE_URL}/signin/logout`,
-      {},
-      { withCredentials: true },
-    );
-    if (res.data.success) {
-      return redirect("/");
-    } else {
-      return null;
-    }
-  } catch (err) {
-    console.log(err);
-    return null;
-  }
+export async function logOut() {
+  localStorage.removeItem("token"); 
+  return redirect("/");
 }
 
 export { buyRequest, addToCart, changeEmail, changePass, changePhone, logOut };

@@ -12,18 +12,19 @@ import "./main.css"
 import BuyerDash from './components/Buyerdash.jsx'
 import SellerDash from './components/Sellersdash.jsx'
 
-import { checkLogin,allowEntery } from './js/extraFxn.js'
+
+import { checkLogin, allowEntry } from './js/extraFxn.js'
 import { logOut } from './js/homeFxn.js'
 
 const router=createBrowserRouter([
   {path:"/",element:<Signin/>,loader:checkLogin},
   {path:"/signup",element:<Signup/>},
   {path:"/success",element:<Success/>},
-  {path:"/home/:username",element:<Home/>,loader:allowEntery},
-  {path:"/sell",element:<Sell/>,loader:allowEntery},
-  {path:"/dashboard/:id",element:<ItemDashboard/>,loader:allowEntery},
-  {path:"/buyerdash/:username",element:<BuyerDash/>,loader:allowEntery,action:logOut},
-  {path:"/sellerdash",element:<SellerDash/>,loader:allowEntery},
+  {path:"/home/:username",element:<Home/>,loader:allowEntry},
+  {path:"/sell",element:<Sell/>, loader:allowEntry},
+  {path:"/dashboard/:id",element:<ItemDashboard/>,loader:allowEntry},
+  {path:"/buyerdash/:username",element:<BuyerDash/>,loader:allowEntry,action:logOut},
+  {path:"/sellerdash",element:<SellerDash/>,loader:allowEntry},
   { path: "*", element: <NotFound /> }
 ])
 

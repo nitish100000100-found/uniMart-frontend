@@ -14,9 +14,10 @@ function SellerDash() {
   useEffect(() => {
     const sendRequest = async () => {
       try {
-        const res = await axios.post("http://localhost:3000/dash/sellerdash", {
-          username,
-        });
+       const res = await axios.post(
+  `${import.meta.env.VITE_API_BASE_URL}/dash/sellerdash`,
+  { username },
+);
         setData(res.data);
       } catch (err) {
         console.log(err);

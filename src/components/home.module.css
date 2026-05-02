@@ -1,0 +1,421 @@
+/* ===================== UNIMART HOME — home.module.css ===================== */
+
+/* ---------- Layout ---------- */
+.container {
+  min-height: 100vh;
+  background: #0a0d1a;
+  background-image:
+    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(80, 40, 160, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 10% 10%, rgba(40, 60, 160, 0.12) 0%, transparent 70%);
+  color: #e8e8f0;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 0 0 60px 0;
+  position: relative;
+}
+
+/* ---------- Notification ---------- */
+.notification {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 9999;
+  background: #1a2e22;
+  border: 1.5px solid #2ecc71;
+  color: #2ecc71;
+  padding: 12px 22px 12px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 24px rgba(46, 204, 113, 0.18);
+  animation: slideInNotif 0.25s ease;
+}
+
+.tick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2ecc71;
+  color: #0a0d1a;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+@keyframes slideInNotif {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Top Bar ---------- */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(10, 13, 26, 0.85);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.dashboardWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #e8e8f0;
+}
+
+.profileCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7b5cfa, #4f8ef7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.dashboardLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #c0c0d8;
+}
+
+.sellBtn {
+  background: linear-gradient(135deg, #7b5cfa, #a259f7);
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 9px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.sellBtn:hover {
+  opacity: 0.88;
+}
+
+/* ---------- Welcome ---------- */
+.welcome {
+  text-align: center;
+  padding: 42px 20px 10px;
+}
+
+.welcome h2 {
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 700;
+  background: linear-gradient(90deg, #7b8ff7 0%, #c084fc 60%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+/* ---------- Search ---------- */
+.searchBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 28px auto 0;
+  max-width: 620px;
+  width: 90%;
+}
+
+.searchBox input {
+  flex: 1;
+  padding: 13px 20px;
+  border-radius: 30px 0 0 30px;
+  border: 1.5px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.06);
+  color: #e8e8f0;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.searchBox input::placeholder {
+  color: rgba(200,200,230,0.42);
+}
+
+.searchBox input:focus {
+  border-color: rgba(123,92,250,0.55);
+}
+
+.searchBox button {
+  padding: 13px 28px;
+  border-radius: 0 30px 30px 0;
+  border: none;
+  background: linear-gradient(135deg, #7b5cfa, #a259f7);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.searchBox button:hover {
+  opacity: 0.88;
+}
+
+/* ---------- Categories ---------- */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 26px auto 10px;
+  max-width: 760px;
+  padding: 0 20px;
+}
+
+.categoryBtn {
+  padding: 9px 22px;
+  border-radius: 22px;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.04);
+  color: #c8c8e0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.categoryBtn:hover {
+  border-color: rgba(123,92,250,0.6);
+  background: rgba(123,92,250,0.10);
+  color: #e0d8ff;
+}
+
+.categoryBtn.active {
+  border-color: #7b5cfa;
+  background: rgba(123,92,250,0.18);
+  color: #c9b8ff;
+}
+
+/* ---------- Search Results ---------- */
+.searchResults {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  padding: 0 20px;
+}
+
+.searchResults h3 {
+  color: #888;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* ✅ FIX: Search results grid — wrap hoga, vertical nahi jayega */
+.searchResultsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.searchResultsGrid .linkWrapper {
+  flex: 1 1 220px;
+  max-width: 260px;
+  min-width: 200px;
+}
+
+.searchResultsGrid .itemCard {
+  min-width: unset;
+  max-width: unset;
+  width: 100%;
+}
+
+/* ---------- Preview / Seller Section ---------- */
+.previewSection {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ---------- Seller Block ---------- */
+.sellerBlock {
+  margin-bottom: 6px;
+}
+
+.card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 14px 22px;
+  min-width: 200px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7b5cfa, #4f8ef7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.card h3 {
+  margin: 0 0 3px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e8e8f0;
+}
+
+.card p {
+  margin: 0;
+  font-size: 13px;
+  color: #888;
+}
+
+/* ---------- Items Slider ---------- */
+.itemsSlider {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 14px;
+  padding-top: 4px;
+  align-items: stretch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(123,92,250,0.3) transparent;
+}
+
+.itemsSlider::-webkit-scrollbar {
+  height: 5px;
+}
+
+.itemsSlider::-webkit-scrollbar-thumb {
+  background: rgba(123,92,250,0.35);
+  border-radius: 10px;
+}
+
+/* ---------- Link Wrapper ---------- */
+.linkWrapper {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Item Card ---------- */
+.itemCard {
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.09);
+  border-radius: 16px;
+  padding: 14px;
+  min-width: 230px;
+  max-width: 250px;
+  width: 230px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: pointer;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.itemCard:hover {
+  border-color: rgba(123,92,250,0.5);
+  transform: translateY(-3px);
+}
+
+.itemImg {
+  width: 100%;
+  height: 155px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+}
+
+.itemCard h4 {
+  margin: 6px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #e8e8f0;
+  letter-spacing: 0.02em;
+}
+
+.itemCard p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7b8ff7;
+}
+
+.age {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #666 !important;
+}
+
+/* ---------- Action Buttons ---------- */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.actions button:first-child {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.07);
+  color: #d0d0e8;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+.actions button:first-child:hover {
+  background: rgba(255,255,255,0.13);
+}
+
+.actions button:last-child {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #7b5cfa, #a259f7);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  width: 100%;
+}
+
+.actions button:last-child:hover {
+  opacity: 0.88;
+}

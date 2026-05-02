@@ -1,0 +1,301 @@
+/* ============================================
+   UniMart — Sell Page (Glassmorphism Dark UI)
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ---------- Variables ---------- */
+:root {
+  --bg-1: #0a0c1b;
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.13);
+  --glass-border: rgba(255, 255, 255, 0.10);
+
+  --accent-1: #6c8bff;
+  --accent-2: #a855f7;
+  --gradient: linear-gradient(135deg, #6c8bff, #a855f7);
+
+  --text: #f0f2ff;
+  --text-muted: #5a6080;
+
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 4px 16px rgba(0,0,0,0.3);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  background: var(--bg-1);
+  color: var(--text);
+  padding: 40px;
+  position: relative;
+}
+
+/* ---------- Header ---------- */
+.header {
+  font-size: 28px;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Top Right ---------- */
+.topRight {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.homeBtn {
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* ---------- Section ---------- */
+.section {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-top: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------- Form ---------- */
+.formBox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 🔥 Inputs FIXED */
+.formBox input,
+.formBox textarea {
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  color: var(--text);
+  outline: none;
+}
+
+/* ---------- Autofill FULL FIX ---------- */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #0a0c1b inset !important;
+  -webkit-text-fill-color: #f0f2ff !important;
+  caret-color: #f0f2ff !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Extra stability */
+input {
+  background-clip: padding-box;
+}
+
+/* ---------- Button ---------- */
+.formBox button {
+  padding: 12px;
+  border-radius: 30px;
+  background: var(--gradient);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* ---------- File ---------- */
+.customFile {
+  padding: 10px;
+  border: 1px dashed var(--accent-1);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+/* ---------- Error ---------- */
+.errorBox {
+  padding: 10px;
+  border-radius: var(--radius-md);
+  background: rgba(255,0,0,0.1);
+}
+
+.note {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ---------- List ---------- */
+.listBox {
+  margin-top: 10px;
+}
+
+.item {
+  padding: 10px;
+  background: var(--glass);
+  margin-top: 6px;
+  border-radius: var(--radius-md);
+}
+
+/* ============================================
+   🔥 ADDING OVERLAY (SELL SECTION ONLY)
+   ============================================ */
+
+.sellSectionWrapper {
+  position: relative;
+}
+
+.addingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(10, 12, 27, 0.55);
+  backdrop-filter: blur(6px);
+
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--radius-lg);
+}
+
+.soldGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.emptyMsg {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.soldCard {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.soldCard:hover {
+  background: var(--glass-hover);
+  transform: translateY(-3px);
+}
+
+.soldCardImage {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soldCardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.noImg {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.soldCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.soldBadge {
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.soldAge {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.soldName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.soldSection {
+  font-size: 12px;
+  color: var(--accent-1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.soldCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 8px;
+  margin-top: auto;
+}
+
+.soldPrice {
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.soldTo {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}

@@ -1,0 +1,158 @@
+/* ===== Container ===== */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 30px;
+}
+
+/* ===== Card ===== */
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  padding: 14px;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(124, 92, 255, 0.25);
+}
+
+/* ===== Image Box ===== */
+.image {
+  width: 100%;
+  height: 180px;
+  object-fit: contain; /* 🔥 important: full image dikhe */
+  background: #111;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+/* ===== Content ===== */
+.content {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Title */
+.content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Description FIX HEIGHT */
+.content p {
+  font-size: 13px;
+  color: #bbb;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 🔥 2 lines max */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Price */
+.price {
+  font-size: 15px;
+  font-weight: 600;
+  color: #8a7cff;
+}
+
+/* Section */
+.section {
+  font-size: 12px;
+  color: #888;
+}
+
+/* ===== Delete Button ===== */
+.crossBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  border: none;
+  cursor: pointer;
+
+  background: rgba(255, 0, 0, 0.15);
+  color: #ff5c5c;
+
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.crossBtn:hover {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+/* ===== Overlay (popup background) ===== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* ===== Popup ===== */
+.popup {
+  background: #111;
+  padding: 25px;
+  border-radius: 16px;
+  width: 300px;
+  text-align: center;
+  color: white;
+}
+
+/* Buttons inside popup */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.actions button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* No button */
+.actions button:first-child {
+  background: #333;
+  color: white;
+}
+
+/* Yes button */
+.actions button:last-child {
+  background: linear-gradient(135deg, #7c5cff, #5a4bff);
+  color: white;
+}
+
+/* ===== Empty State ===== */
+.empty {
+  text-align: center;
+  color: #aaa;
+  margin-top: 60px;
+}

@@ -14,8 +14,8 @@ function Home() {
   const categories = [
     "I PHONE",
     "FURNITURE",
-    "Books",
-    "Anime",
+    "BOOKS",
+    "ANIME",
     "CLOTH",
     "NO CATEGORY",
   ];

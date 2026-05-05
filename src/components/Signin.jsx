@@ -32,7 +32,7 @@ function Signin() {
       );
 
       if (res.data.success) {
-        localStorage.setItem("token", res.data.token);  
+       
         navigate(`/home/${username}`);
       } else if (res.data.message === "This username doesn't exist") {
         setError(["User Not Found"]);

@@ -1,17 +1,13 @@
 import axios from "axios";
 import { redirect } from "react-router-dom";
 
-function getToken() {
-  return localStorage.getItem("token");
-}
-
 async function checkLogin() {
   try {
     const res = await axios.post(
       `${import.meta.env.VITE_API_BASE_URL}/signin/isSignin`,
-      { token: getToken() } 
+      {},
+      { withCredentials: true },
     );
-
     if (res.data.success) {
       return redirect(`/home/${res.data.data.username}`);
     } else {
@@ -26,9 +22,9 @@ async function allowEntry() {
   try {
     const res = await axios.post(
       `${import.meta.env.VITE_API_BASE_URL}/signin/isSignin`,
-      { token: getToken() } 
+      {},
+      { withCredentials: true },
     );
-
     if (res.data.success) {
       return res.data.data.username;
     } else {

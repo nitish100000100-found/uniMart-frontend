@@ -154,7 +154,7 @@ async function changePhone(e, showNotif, username) {
 async function logOut() {
   try {
     const res = await axios.post(
-      `${import.meta.env.VITE_API_BASE_URL}/auth/logout`,
+      `${import.meta.env.VITE_API_BASE_URL}/signin/logout`,
       {},
       { withCredentials: true },
     );

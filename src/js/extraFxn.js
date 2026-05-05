@@ -113,10 +113,10 @@ async function deleteListed(item, forChange, setRemoving) {
 
     const seller = res.data.seller;
 
-    forChange({
-      listed: seller.listed,
-      sold: seller.sold,
-    });
+  forChange(prev => ({
+  ...prev,
+  listed: prev.listed.filter(i => i._id !== item._id)
+}));
 
     setRemoving(null);
   } catch (err) {

@@ -26,10 +26,11 @@ function Signin() {
     }
 
     try {
-      const res = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/signin`,
-        { username, password }
-      );
+  const res = await axios.post(
+  `${import.meta.env.VITE_API_BASE_URL}/signin`,
+  { username, password },
+  { withCredentials: true } 
+);
 
       if (res.data.success) {
        
